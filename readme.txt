@@ -1,8 +1,11 @@
 # Users Only #
-
-* **Contributors:** [gagan0123] (http://profiles.wordpress.org/gagan0123)
-
-* **License:** [GPL v2 or later] ( http://www.gnu.org/licenses/gpl-2.0.html)
+Contributors: gagan0123
+Tags: login, users, membership
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Requires at least: WordPress 2.7
+Tested up to: WordPress 4.1
+Stable tag: 1.0
 
 Allows access to the site to Users Only.
 
