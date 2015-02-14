@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: Users Only
+  Plugin Name: For Users Only
   Description: Allows access to the site for logged in users only
   Version: 1.0
   Author URI: http://gagan.pro

@@ -1,4 +1,4 @@
-# Users Only #
+# For Users Only #
 Contributors: gagan0123
 Tags: login, users, membership
 License: GPLv2 or later
