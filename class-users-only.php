@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Only For Users Class
+ * Users Only Class
  *
- * @package     Only_For_Users
+ * @package     Users_Only
  * @author      Gagan <me@gagan.pro>
  */
 
 /**
- * Description of Only_For_Users
+ * Description of Users_Only class
  *
- * @package     Only_For_Users
+ * @package     Users_Only
  * @author      Gagan <me@gagan.pro>
  */
-class Only_For_Users {
+class Users_Only {
 
     /**
      * Instance of this class.

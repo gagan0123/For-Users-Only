@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: Only for Users
+  Plugin Name: Users Only
   Description: Allows access to the site for logged in users only
   Version: 1.0
   Author URI: http://gagan.pro
@@ -10,6 +10,6 @@
 if (!defined('ABSPATH'))
     exit; // Exit if accessed directly
 
-require_once plugin_dir_path( __FILE__ ) . 'class-only-for-users.php';
+require_once plugin_dir_path( __FILE__ ) . 'class-users-only.php';
 
-add_action( 'plugins_loaded', array( 'Only_For_Users', 'get_instance' ) );
+add_action( 'plugins_loaded', array( 'Users_Only', 'get_instance' ) );
