@@ -3,8 +3,8 @@
 # The difference is that this script lives in the plugin's git repo & doesn't require an existing SVN repo.
 
 # main config
-export PLUGINSLUG="users-only"  #must match with wordpress.org plugin slug
-export MAINFILE="index.php" # this should be the name of your main php file in the wordpress plugin
+export PLUGINSLUG="for-users-only"  #must match with wordpress.org plugin slug
+export MAINFILE="init.php" # this should be the name of your main php file in the wordpress plugin
 
 ##### YOU CAN STOP EDITING HERE #####
 CURRENTDIR=`pwd`
