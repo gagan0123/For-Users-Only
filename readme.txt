@@ -1,24 +1,29 @@
-# For Users Only #
+=== For Users Only ===
 Contributors: gagan0123
 Tags: login, users, membership
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: WordPress 2.7
-Tested up to: WordPress 4.1
-Stable tag: 1.0
+Tested up to: WordPress 4.8.1
+Stable tag: 1.1
 
-Allows access to the site to Users Only.
+Allows only logged in users to visit the site.
 
-## Description ##
+== Description ==
 
-Allows access to the site to Users Only. If anyone tries to access any page on the frontend of the site, he/she will be redirected to the login page automatically.
+Allows only logged in users to visit the site. If anyone tries to access any page on the frontend of the site, user will be redirected to the login page automatically.
 
-## Installation ##
+== Installation ==
 
 1. Add the plugin's folder in the WordPress' plugin directory.
 1. Activate the plugin.
 
-## Changelog ##
+ ==Changelog ==
 
-#### 1.0 ####
+= 1.1 =
+* Checked compatibility with WordPress 4.8.1 and mentioned it in readme.
+* Some formatting modifications in code as per WordPress standards.
+* Some modifications in the readme file.
+
+= 1.0 =
 * Initial Plugin uploaded.
