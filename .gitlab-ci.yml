@@ -1,0 +1,19 @@
+stages:
+    - verify
+    - release
+
+PHPCS:
+    stage: verify
+    image: wpunit/php:wpcs
+    script:
+        - phpcs
+    allow_failure: true
+
+Release:
+    stage: release
+    environment: 
+        name: release
+    image: wpunit/php:svn-release
+    when: manual
+    script:
+        - bash bin/release-wp-plugin.sh
