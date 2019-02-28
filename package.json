@@ -1,0 +1,22 @@
+{
+    "name": "for-users-only",
+    "version": "1.0.1",
+    "main": "init.php",
+    "repository": {
+        "type": "git",
+        "url": "https://gitlab.com/gagan0123/for-users-only"
+    },
+    "keywords": [
+        "wordpress"
+    ],
+    "bugs": {
+        "url": "https://gitlab.com/gagan0123/for-users-only/issues"
+    },
+    "author": "Gagan Deep Singh",
+    "license": "GPL-2.0",
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-wp-readme-to-markdown": "^2.0.1"
+    },
+    "dependencies": {}
+}
