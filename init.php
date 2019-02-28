@@ -13,6 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die; // Exit if accessed directly
 }
 
-require_once plugin_dir_path( __FILE__ ) . 'class-users-only.php';
+require_once plugin_dir_path( __FILE__ ) . 'class-for-users-only.php';
 
-add_action( 'plugins_loaded', array( 'Users_Only', 'get_instance' ) );
+For_Users_Only::get_instance();

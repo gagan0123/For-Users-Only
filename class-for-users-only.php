@@ -12,7 +12,7 @@
  * @package     Users_Only
  * @author      Gagan <me@gagan.pro>
  */
-class Users_Only {
+class For_Users_Only {
 
 	/**
 	 * Instance of this class.
