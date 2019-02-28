@@ -9,7 +9,7 @@
   Author: Gagan Deep Singh
  */
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	die; // Exit if accessed directly
 }
 
