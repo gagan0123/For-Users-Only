@@ -4,7 +4,8 @@ Tags: login, users, membership
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: WordPress 2.7
-Tested up to: WordPress 4.8.1
+Requires PHP: 5.6
+Tested up to: 5.1
 Stable tag: 1.1
 
 Allows only logged in users to visit the site.
