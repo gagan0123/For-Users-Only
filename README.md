@@ -24,6 +24,11 @@ Allows only logged in users to visit the site. If anyone tries to access any pag
 
  ==Changelog ==
 
+### 1.1.1 ###
+* Make use of wp_safe_redirect.
+* Using strict type checking.
+* Filter super global variables data.
+
 ### 1.1 ###
 * Checked compatibility with WordPress 4.8.1 and mentioned it in readme.
 * Some formatting modifications in code as per WordPress standards.
