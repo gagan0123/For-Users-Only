@@ -42,9 +42,9 @@ class For_Users_Only {
 	 * @return void
 	 */
 	public function login_check() {
-		// Making sure to load the check only on the frontend that is accessible directly
+		// Making sure to load the check only on the frontend that is accessible directly.
 		if ( ! is_user_logged_in() && ! $this->is_login_page() ) {
-			wp_redirect( wp_login_url( $this->current_page_url() ) );
+			wp_safe_redirect( wp_login_url( $this->current_page_url() ) );
 		}
 	}
 
@@ -56,7 +56,7 @@ class For_Users_Only {
 	 * @return bool TRUE if its the login page, FALSE if its not the login page.
 	 */
 	public function is_login_page() {
-		return in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) );
+		return in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ), true );
 	}
 
 	/**
@@ -67,19 +67,24 @@ class For_Users_Only {
 	 * @return string Current URL.
 	 */
 	public function current_page_url() {
-		$pageURL = 'http';
-		if ( isset( $_SERVER['HTTPS'] ) ) {
-			if ( $_SERVER['HTTPS'] == 'on' ) {
-				$pageURL .= 's';
+		$page_url = 'http';
+		$https    = filter_input( INPUT_SERVER, 'HTTPS', FILTER_SANITIZE_STRING );
+		if ( $https ) {
+			if ( 'on' === $https ) {
+				$page_url .= 's';
 			}
 		}
-		$pageURL .= '://';
-		if ( $_SERVER['SERVER_PORT'] != '80' ) {
-			$pageURL .= $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . $_SERVER['REQUEST_URI'];
+		$page_url   .= '://';
+		$server_port = filter_input( INPUT_SERVER, 'SERVER_PORT', FILTER_SANITIZE_STRING );
+		$request_uri = filter_input( INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_STRING );
+		$server_name = filter_input( INPUT_SERVER, 'SERVER_NAME', FILTER_SANITIZE_STRING );
+		$server_uri  = filter_input( INPUT_SERVER, 'SERVER_NAME', FILTER_SANITIZE_STRING );
+		if ( '80' !== $server_port ) {
+			$page_url .= $server_name . ':' . $server_port . $request_uri;
 		} else {
-			$pageURL .= $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+			$page_url .= $server_name . $server_uri;
 		}
-		return $pageURL;
+		return $page_url;
 	}
 
 	/**
@@ -92,7 +97,7 @@ class For_Users_Only {
 	public static function get_instance() {
 
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self();
 		}
 
