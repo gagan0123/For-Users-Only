@@ -1,8 +1,15 @@
+
+<img src='https://gitlab.com/gagan0123/for-users-only/raw/master/assets/icon-128x128.png' align='right' />
+
 # For Users Only #
-
-* **Contributors:** [gagan0123] (http://profiles.wordpress.org/gagan0123),
-
-* **License:** [GPL v2 or later] ( http://www.gnu.org/licenses/gpl-2.0.html)
+**Contributors:** [gagan0123](https://profiles.wordpress.org/gagan0123)  
+**Tags:** login, users, membership  
+**License:** GPLv2 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
+**Requires at least:** WordPress 2.7  
+**Requires PHP:** 5.6  
+**Tested up to:** 5.1  
+**Stable tag:** 1.1  
 
 Allows only logged in users to visit the site.
 
@@ -15,12 +22,12 @@ Allows only logged in users to visit the site. If anyone tries to access any pag
 1. Add the plugin's folder in the WordPress' plugin directory.
 1. Activate the plugin.
 
- ##Changelog ##
+ ==Changelog ==
 
-#### 1.1 ####
+### 1.1 ###
 * Checked compatibility with WordPress 4.8.1 and mentioned it in readme.
 * Some formatting modifications in code as per WordPress standards.
 * Some modifications in the readme file.
 
-#### 1.0 ####
+### 1.0 ###
 * Initial Plugin uploaded.
