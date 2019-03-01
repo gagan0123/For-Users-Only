@@ -2,7 +2,7 @@
 /**
  * Users Only Class
  *
- * @package     Users_Only
+ * @package     For_Users_Only
  * @author      Gagan <me@gagan.pro>
  */
 
@@ -23,6 +23,11 @@ class For_Users_Only {
 	 */
 	protected static $instance = null;
 
+	/**
+	 * Constructor for the class
+	 *
+	 * @since 1.0
+	 */
 	public function __construct() {
 		if ( ! is_admin() ) {
 			add_action( 'init', array( $this, 'login_check' ) );
@@ -33,6 +38,8 @@ class For_Users_Only {
 	 * Checks if the user is logged in, if not, then redirects the user to the login page.
 	 *
 	 * @since 1.0
+	 *
+	 * @return void
 	 */
 	public function login_check() {
 		// Making sure to load the check only on the frontend that is accessible directly
@@ -80,7 +87,7 @@ class For_Users_Only {
 	 *
 	 * @since 1.0
 	 *
-	 * @return object A single instance of this class.
+	 * @return For_Users_Only A single instance of this class.
 	 */
 	public static function get_instance() {
 
