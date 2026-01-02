@@ -1,8 +1,14 @@
-# For Users Only
+<img src='https://gitlab.com/gagan0123/for-users-only/raw/master/assets/icon-128x128.png' align='right' />
 
-**Plugin Name**: For Users Only
-**Version**: 1.1 (Source Header), 1.0.1 (package.json)
-**Status**: Maintenance Mode / Buggy
+# For Users Only #
+**Contributors:** [gagan0123](https://profiles.wordpress.org/gagan0123)
+**Tags:** login, users, membership
+**License:** GPLv2 or later
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
+**Requires at least:** WordPress 2.7
+**Requires PHP:** 5.6
+**Tested up to:** 5.1
+**Stable tag:** 1.1
 
 ## Project Overview
 "For Users Only" is a WordPress plugin designed to restrict site access exclusively to logged-in users. It automatically redirects any non-authenticated user attempting to access the frontend to the WordPress login page, attempting to preserve the intended destination for post-login redirection.
