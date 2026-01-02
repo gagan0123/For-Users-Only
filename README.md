@@ -8,14 +8,10 @@
 **Requires at least:** WordPress 2.7
 **Requires PHP:** 5.6
 **Tested up to:** 5.1
-**Stable tag:** 1.1
+**Stable tag:** 1.1.1
 
 ## Project Overview
 "For Users Only" is a WordPress plugin designed to restrict site access exclusively to logged-in users. It automatically redirects any non-authenticated user attempting to access the frontend to the WordPress login page, attempting to preserve the intended destination for post-login redirection.
-
-## Documentation Correction (Internal Note)
-* **Version Discrepancy**: The plugin header in `init.php` declares version `1.1`. The `package.json` declares `1.0.1`. The `readme.txt` changelog lists features for `1.1.1` (which are present in the code), but the "Stable tag" remains `1.1`.
-* **Bug Identification**: The URL reconstruction logic in `class-for-users-only.php` contains a bug when running on port 80 (standard HTTP). It incorrectly appends the `SERVER_NAME` twice instead of the request URI, resulting in malformed return URLs (e.g., `http://example.comexample.com`).
 
 ## Tech Stack
 * **Language**: PHP (>= 5.6)
@@ -57,8 +53,23 @@
 ### 2. Intelligent Redirection
 *   **Redirect**: Uses `wp_safe_redirect` to send users to the login URL.
 *   **Return URL**: Appends the current page URL as a `redirect_to` query parameter so users return to their intended page after logging in.
-    *   *Warning*: As noted in "Documentation Correction", this feature is currently buggy for standard HTTP (port 80) connections, appending `SERVER_NAME` instead of `REQUEST_URI`.
+    *   *Note*: The URL reconstruction logic currently has a known issue on standard HTTP (port 80) connections, where it may append the `SERVER_NAME` incorrectly.
 
 ### 3. Security
 *   **Input Sanitization**: Uses `filter_input` for `SERVER_NAME`, `REQUEST_URI`, etc.
 *   **Safe Redirect**: Uses `wp_safe_redirect` to prevent open redirect vulnerabilities.
+
+## Changelog
+
+### 1.1.1
+* Make use of wp_safe_redirect.
+* Using strict type checking.
+* Filter super global variables data.
+
+### 1.1
+* Checked compatibility with WordPress 4.8.1 and mentioned it in readme.
+* Some formatting modifications in code as per WordPress standards.
+* Some modifications in the readme file.
+
+### 1.0
+* Initial Plugin uploaded.
