@@ -36,4 +36,4 @@ jobs:
         run: phpcs -i
 
       - name: Run PHPCS
-        run: phpcs --report=checkstyle | cs2pr
+        run: phpcs -q --report=checkstyle | cs2pr
