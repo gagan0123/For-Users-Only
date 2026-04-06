@@ -1,0 +1,32 @@
+name: PHPCS
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  phpcs:
+    name: PHP Coding Standards
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: cs2pr, phpcs
+
+      - name: Install WordPress Coding Standards
+        run: |
+          composer global require wp-coding-standards/wpcs:"^3.0" --no-interaction
+          phpcs --config-set installed_paths "$(composer global config home)/vendor/wp-coding-standards/wpcs"
+
+      - name: Run PHPCS
+        run: phpcs --report=checkstyle | cs2pr
