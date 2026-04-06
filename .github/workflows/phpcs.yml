@@ -25,8 +25,8 @@ jobs:
 
       - name: Install WordPress Coding Standards
         run: |
-          composer global require wp-coding-standards/wpcs:"^3.0" --no-interaction
-          phpcs --config-set installed_paths "$(composer global config home)/vendor/wp-coding-standards/wpcs"
+          composer global config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer global require dealerdirect/phpcodesniffer-composer-installer:"^1.0" wp-coding-standards/wpcs:"^3.0" --no-interaction
 
       - name: Run PHPCS
         run: phpcs --report=checkstyle | cs2pr

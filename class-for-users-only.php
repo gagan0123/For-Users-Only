@@ -103,5 +103,4 @@ class For_Users_Only {
 
 		return self::$instance;
 	}
-
 }
