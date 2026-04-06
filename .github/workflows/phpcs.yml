@@ -1,0 +1,39 @@
+name: PHPCS
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  phpcs:
+    name: PHP Coding Standards
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: cs2pr
+
+      - name: Install PHPCS and WordPress Coding Standards
+        run: |
+          INSTALL_DIR=$(mktemp -d)
+          cd "$INSTALL_DIR"
+          composer init --name=tmp/phpcs --no-interaction
+          composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer require squizlabs/php_codesniffer:"^3.0" dealerdirect/phpcodesniffer-composer-installer:"^1.0" wp-coding-standards/wpcs:"^3.0" --no-interaction
+          echo "$INSTALL_DIR/vendor/bin" >> "$GITHUB_PATH"
+
+      - name: Verify setup
+        run: phpcs -i
+
+      - name: Run PHPCS
+        run: phpcs -q --report=checkstyle | cs2pr

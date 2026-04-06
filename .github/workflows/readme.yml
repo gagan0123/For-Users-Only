@@ -1,0 +1,39 @@
+name: Sync README
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'readme.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  readme:
+    name: Update README.md
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Convert readme.txt to README.md
+        run: |
+          npx wp-readme-to-markdown --slug=for-users-only
+          # Prepend plugin icon
+          ICON_URL="https://raw.githubusercontent.com/gagan0123/for-users-only/master/assets/icon-128x128.png"
+          ICON_TAG="<img src='${ICON_URL}' align='right' />"
+          echo -e "\n${ICON_TAG}\n\n$(cat README.md)" > README.md
+
+      - name: Commit updated README.md
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update README.md from readme.txt
+          file_pattern: README.md
